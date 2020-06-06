@@ -75,10 +75,10 @@
                     if (response.status === 'not_found') {
                         $("#search_result").append('<h2 class="text-danger text-center">Увы, но ничего не найдено</h2>')
                     } else {
-                        $.each(response.photos, function (item, history) {
+                        $.each(response.photos, function (item, photo) {
                             $("#search_result").append(' <div class="col-md-4 col-sm-6 col-xs-12 mb-30"><div class="single-class">\n' +
-                                '<div class="single-img"><a href="#"><img src="/' + history['image'].replace('static', 'media') + '" alt="class"></a>\n' +
-                                '</div><div class="single-content text-center"><h3><a href="#">Цена : ' + history['price'] + '</a></h3>\n</div></div></div>');
+                                '<a href="/login"><img src="/' + photo['image'].replace('static', 'media') + '" alt="class"></a>\n' +
+                                '<div class="single-content text-center"><h3><a href="/login">Цена : ' + photo['price'] + '</a></h3>\n</div></div></div>');
                         });
                     }
                 }

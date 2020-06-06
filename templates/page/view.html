@@ -1,0 +1,35 @@
+{% extends "layouts/app.html" %}
+{% load static %}
+{% block content %}
+        <section class="banner-area text-left">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>{{page.title}}</h2>
+                            <div class="banner-breadcrumb">
+                                <ul>
+                                    <li><a href="{% url 'home' %}"> Главная </a> <i class="zmdi zmdi-chevron-right"></i>
+                                    </li>
+                                    <li>{{page.title}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about-area pt-95 pb-100">
+           <div class="container">
+               <div class="row">
+                   <div class="col-md-12 col-sm-12 col-xs-12">
+                       <div class="about-content">
+                           {{ page.text  | safe | linebreaks}}
+                       </div>
+                   </div>
+               </div>
+           </div>
+        </section>
+{% endblock %}

@@ -21,6 +21,7 @@ from pages.views import home_page
 urlpatterns = [
     path('', home_page, name='home'),
     path('competitions/', include('competitions.urls')),
+    path('page/', include('pages.urls')),
     path('admin/', admin.site.urls),
     path('login/', views.LoginView.as_view(), name='login'),
 

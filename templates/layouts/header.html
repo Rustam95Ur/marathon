@@ -15,9 +15,9 @@
                             <nav>
                                 <ul>
                                     <li><a href="{% url 'competitions_list' %}">Соревнования</a></li>
-                                    <li><a href="{% url 'home' %}">Фотографам</a></li>
-                                    <li><a href="{% url 'home' %}">Огранизаторам</a></li>
-                                    <li><a href="{% url 'home' %}">Партнеры</a></li>
+                                    <li><a href="{% url 'page_view' 'photograpers' %}">Фотографам</a></li>
+                                    <li><a href="{% url 'page_view' 'affiliate' %}">Огранизаторам</a></li>
+                                    <li><a href="{% url 'page_view' 'partners' %}">Партнеры</a></li>
                                     <li><a href="{% url 'home' %}">Блог</a></li>
                                 </ul>
                             </nav>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-md-2 hidden-sm hidden-xs">
                     <div class="header-contact text-right">
-                        <a class="banner-btn" data-text="contact" href="{% url 'login' %}l"><span>Логин</span></a>
+                        <a class="banner-btn" data-text="Логин" href="{% url 'login' %}"><span>Логин</span></a>
                     </div>
                 </div>
             </div>
