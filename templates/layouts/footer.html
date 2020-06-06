@@ -1,0 +1,47 @@
+<!-- Footer Area Start -->
+{% load static %}
+<footer class="footer-area bg-gray">
+    <div class="footer-widget-area bg-3 pt-98 pb-90 fix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'img/logo/logo.png' %}" class="footer-logo" alt="logo">
+                    </a>
+                </div>
+                <div class="col-md-4 col-lg-offset-1 col-sm-6 col-xs-12">
+                    <div class="single-footer-widget">
+                        <h3>О нас</h3>
+                        <p>Алматы марафон (также известный как Алматинский марафон) — ежегодный марафон, который
+                            проходит в последнее воскресенье апреля в городе Алма-Ата, Казахстан. Марафон является самым
+                            масштабным спортивным мероприятием Центральной Азии и с 2013 года входит в международную
+                            ассоциацию AIMS. </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-offset-2  col-sm-6 col-xs-12">
+                    <div class="single-footer-widget">
+                        <h3>Контакты</h3>
+                        <ul>
+                            <li><i class="zmdi zmdi-email"></i> username@gmail.com</li>
+                            <li><i class="zmdi zmdi-phone"></i> (+660 256 24857)</li>
+                            <li><i class="zmdi zmdi-home"></i> Your Address Here</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-text-area fix bg-coffee ptb-18">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-text text-center">
+                        <span>Copyright &copy; <a href="{% url 'home' %}">Marathon.kz</a> {% now "Y" %}. Все права защищены.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Area End -->

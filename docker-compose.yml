@@ -1,0 +1,41 @@
+version: '3'
+services:
+  web:
+    container_name: marathon-web
+    build: .
+    ports:
+      - '8008:8008'
+    depends_on:
+      - db
+    command: python manage.py runserver 0.0.0.0:8008
+    volumes:
+      - '.:/var/www/marathon'
+    networks:
+      - marathon_network
+  db:
+    container_name: marathon-db
+    image: 'postgres:10-alpine'
+    environment:
+      POSTGRES_USER: marathon_user
+      POSTGRES_PASSWORD: marathon_pass
+      POSTGRES_DB: marathon_db
+    ports:
+      - '5432:5432'
+    networks:
+      - marathon_network
+  pg-admin:
+    container_name: marathon_pg_admin
+    image: 'dpage/pgadmin4'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@applecity.kz
+      PGADMIN_DEFAULT_PASSWORD: Z72zGLr5
+    ports:
+      - '16543:80'
+    depends_on:
+      - db
+    networks:
+      - marathon_network
+
+networks:
+  marathon_network:
+    driver: bridge

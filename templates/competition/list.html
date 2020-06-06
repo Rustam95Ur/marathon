@@ -1,0 +1,59 @@
+{% extends "layouts/app.html" %}
+{% load static %}
+{% block content %}
+    <!-- Banner Area Start -->
+    <section class="banner-area text-left">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>Списко Соревновании</h2>
+                            <div class="banner-breadcrumb">
+                                <ul>
+                                    <li><a href="{% url 'home' %}"> Главная </a> <i class="zmdi zmdi-chevron-right"></i>
+                                    </li>
+                                    <li>Списко Соревновании</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Area End -->
+    <!-- Event Area Strat -->
+    <section class="event-area pt-95 pb-100 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-125">
+                    <div class="section-title text-center">
+                        <h2>Список</h2>
+                    </div>
+                </div>
+                 <div class="col-md-12 mt-40">
+                          <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Название</th>
+                            <th scope="col">Дата</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for competition in competitions %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td><a class="text-primary" href="{% url 'home' %}">{{ competition.title }}</a></td>
+                            <td>{{ competition.start_date }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <!-- Event Area End -->
+{% endblock %}
