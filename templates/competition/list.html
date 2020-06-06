@@ -1,5 +1,9 @@
 {% extends "layouts/app.html" %}
 {% load static %}
+{% block css %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% endblock %}
 {% block content %}
     <!-- Banner Area Start -->
     <section class="banner-area text-left">
@@ -32,8 +36,8 @@
                         <h2>Список</h2>
                     </div>
                 </div>
-                 <div class="col-md-12 mt-40">
-                          <table class="table">
+                <div class="col-md-12 mt-40">
+                    <table class="table">
                         <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
@@ -43,15 +47,17 @@
                         </thead>
                         <tbody>
                         {% for competition in competitions %}
-                        <tr>
-                            <th scope="row">{{ forloop.counter }}</th>
-                            <td><a class="text-primary" href="{% url 'home' %}">{{ competition.title }}</a></td>
-                            <td>{{ competition.start_date }}</td>
-                        </tr>
+                            <tr>
+                                <th scope="row">{{ forloop.counter }}</th>
+                                <td><a class="text-primary"
+                                       href="{% url 'competition_view' competition.id %}">{{ competition.title }}</a>
+                                </td>
+                                <td>{{ competition.start_date }}</td>
+                            </tr>
                         {% endfor %}
                         </tbody>
                     </table>
-                    </div>
+                </div>
             </div>
         </div>
     </section>

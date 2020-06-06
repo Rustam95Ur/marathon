@@ -1,0 +1,89 @@
+{% extends "layouts/app.html" %}
+{% load static %}
+{% block content %}
+    <!-- Banner Area Start -->
+    <section class="banner-area text-left">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>Поиск фотографии</h2>
+                            <div class="banner-breadcrumb">
+                                <ul>
+                                    <li><a href="{% url 'home' %}"> Главная </a> <i class="zmdi zmdi-chevron-right"></i>
+                                    </li>
+                                    <li>Поиск фотографии</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Area End -->
+    <!-- Event Area Strat -->
+    <section class="event-area pt-95 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-125">
+                    <div class="section-title text-center">
+                        <h2>Введите номер</h2>
+                    </div>
+                </div>
+            </div>
+            <input value="{{ competition.id }}" name="id" type="hidden">
+            <div class="col-md-6 col-lg-offset-3 mt-20 mb-30">
+                <input class="form-control" name="user_id" type="number" style="font-size:2rem;" required>
+            </div>
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success search-btn" style="font-size: 2rem">ПОИСК</button>
+            </div>
+        </div>
+    </section>
+    <section class="class-area fix bg-gray pb-100 pt-95">
+        <div class="container">
+            <div class="row" id="search_result">
+
+            </div>
+            <div class="col-md-6 col-lg-offset-5"  id='loader' style="display: none">
+                <div class="loader"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+<!-- Event Area End -->
+{% block scripts %}
+    <script>
+        $(document).on('click', '.search-btn', function (e) {
+            var search_val = $('input[name="user_id"]').val();
+            var competition_id = $('input[name="id"]').val();
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', '/competitions/search/' + competition_id + '/' + search_val);
+            xhr.send();
+            xhr.onprogress = function (event) {
+                document.getElementById("search_result").innerHTML = "";
+                $('#loader').show()
+            };
+            xhr.onload = xhr.onerror = function () {
+                 $('#loader').hide()
+                var response = JSON.parse(this.response);
+                if (xhr.status != 200) {
+                    console.log(`Error ${xhr.status}: ${xhr.statusText}`);
+                } else {
+                    if (response.status === 'not_found') {
+                        $("#search_result").append('<h2 class="text-danger text-center">Увы, но ничего не найдено</h2>')
+                    } else {
+                        $.each(response.photos, function (item, history) {
+                            $("#search_result").append(' <div class="col-md-4 col-sm-6 col-xs-12 mb-30"><div class="single-class">\n' +
+                                '<div class="single-img"><a href="#"><img src="/' + history['image'].replace('static', 'media') + '" alt="class"></a>\n' +
+                                '</div><div class="single-content text-center"><h3><a href="#">Цена : ' + history['price'] + '</a></h3>\n</div></div></div>');
+                        });
+                    }
+                }
+            };
+        });
+
+    </script>
+{% endblock %}

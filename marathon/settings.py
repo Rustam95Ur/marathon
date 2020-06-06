@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'competitions',
     'photos',
     'pages',
-    'competitions',
+    'runners',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,4 @@ STATICFILES_DIRS = [
 
 
 COMPETITION_IMAGE_DIRECTORY = 'static/img/competition/'
+PHOTO_IMAGE_DIRECTORY = 'static/img/photo/'
