@@ -1,0 +1,53 @@
+{% extends "layouts/app.html" %}
+{% load static %}
+{% block content %}
+    {% load  replace_img %}
+    <section class="banner-area text-left">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>Блог</h2>
+                            <div class="banner-breadcrumb">
+                                <ul>
+                                    <li><a href="{% url 'home' %}"> Главная </a> <i class="zmdi zmdi-chevron-right"></i>
+                                    </li>
+                                    <li>Блоги</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Area Start -->
+    <section class="blog-area pt-95 pb-100">
+        <div class="container">
+            <div class="row">
+                {% for post in posts %}
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="single-blog pb-30">
+                        <div class="blog-pic single-img">
+                            <img src="/{{ post.image.url| image_url_update }}" alt="blog">
+                            <div class="gallery-icon">
+                                <a class="image-popup" href="/{{post.image.url| image_url_update}}">
+                                    <i class="zmdi zmdi-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <h3><a href="{% url 'post_view' post.id %}">{{ post.title }}</a></h3>
+                            <h6>{{ post.created_at }}</h6>
+                            <p>{{ post.description }}</p>
+                            <a  class="btn btn-info text-white" href="{% url 'post_view' post.id %}">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+             {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Event Area End -->
+{% endblock %}

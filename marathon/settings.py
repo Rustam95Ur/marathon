@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'competitions',
     'photos',
     'pages',
+    'posts',
     'runners',
 ]
 
@@ -135,3 +136,4 @@ STATICFILES_DIRS = [
 
 COMPETITION_IMAGE_DIRECTORY = 'static/img/competition/'
 PHOTO_IMAGE_DIRECTORY = 'static/img/photo/'
+POST_IMAGE_DIRECTORY = 'static/img/post/'

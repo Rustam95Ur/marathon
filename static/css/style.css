@@ -297,7 +297,7 @@ td.pink{background: #FF91B8}
 }
 .trainer-hover ul li{
     display: inline-block;
-    border: 1;2px solid #fff;
+    border: 2px solid #fff;
     border-radius: 50%;
     height: 30px;
     width: 30px;
@@ -402,7 +402,7 @@ td.pink{background: #FF91B8}
     content: "";
     right: 30px;
 }
-*/
+*
 .event-content h3{
     font-size: 20px;
     color: #757575;
@@ -459,7 +459,7 @@ td.pink{background: #FF91B8}
 }
 .blog-content p{margin-bottom: 15px}
 .blog-content a{
-    color: #757575;
+    /*color: #757575;*/
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;

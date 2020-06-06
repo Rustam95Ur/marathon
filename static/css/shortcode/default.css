@@ -110,8 +110,8 @@ label {
 .mark, mark {
     background: #4fc1f0 none repeat scroll 0 0;
     color: #ffffff;
-}	font-weight: 600;
 }
+
 .f-left {float: left}
 .f-right {float: right}
 p{
@@ -607,7 +607,7 @@ textarea {
 	position: relative; 
 }
 .bg-3 { 
-    background-image: url("../../img/footer/1.jpg");
+
     background-position: 55% bottom; 
 }
 /*************************************
@@ -626,7 +626,7 @@ textarea {
     position: absolute;
     left: 50%;
     content: "";
-    background: url(../../img/icon/title.png);
+
     bottom: -15px;
     margin-left: -54px;
     width: 108px;
