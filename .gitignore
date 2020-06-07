@@ -34,7 +34,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 media/
-static/img/
+#static/img/
 static/files/
 static/cloud/
 env/
